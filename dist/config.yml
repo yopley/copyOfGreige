@@ -1,0 +1,6 @@
+default:
+  password: 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
+  theme_id: "105046737062"
+  store: carl-rousseau.myshopify.com
+  ignore_files:
+  - config/settings_data.json

@@ -1,0 +1,42 @@
+<div class="theme-container">
+    <div class="products-collection">
+        <div class="products-collection__item item__title">
+            <h1>{{ collection.current_type | capitalize }}</h1>
+        </div>
+      <div class="products-collection__item item__grid">
+      {% for product in collection.products %}
+            {% assign bool = false %}
+            {% for option in product.options %}
+                {% if option == 'Size' %}
+                    {% assign bool = true %}
+                {% endif %}
+            {% endfor %}
+            {% for color_option in product.options_by_name['Color'].values %}
+                {% assign colour = color_option %}
+                {% for  variant in product.variants %}
+                    {% if bool == true %}
+                        {% if variant.title contains colour and variant.title contains "200x200" %}
+                            {% assign variant_title = variant.title %}
+                            {% assign variant_img = variant.image.src %}
+                            {% assign variant_price = variant.price %}
+                        {% endif %}
+                    {% else %}
+                        {% if variant.title contains colour %}
+                            {% assign variant_title = variant.title %}
+                            {% assign variant_img = variant.image.src %}
+                            {% assign variant_price = variant.price %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                <div class="grid-product">
+                    <a href="#">
+                      <img class="product-image" src="{{ variant_img | img_url: '330x370' , crop: 'center' }}" alt="">
+                      <p data-variant="{{ variant_title }}">{{ product.title }} {{ color_option }} {{ variant_price | money }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+      {% endfor %}
+      </div>
+      </div>
+
+</div>

@@ -1,0 +1,60 @@
+<section class="advantage_section">
+    <div class="advantage_container theme-container">
+        <div class="advantage_title">
+            <h3>{{ section.settings.advantage_title}}</h3>
+        </div>
+        <div class="advantage_blocks">
+        {%- for block in section.blocks -%}
+            <div class="advantage_block">
+                <div class="advantage_icon">
+                    <img src="{{ block.settings.advantage_icon | img_url }}" alt="">
+                </div>
+                <div class="advantage_content">
+                    <div class="advantage_content_title">
+                        <h4>{{ block.settings.advantage_content_title }}</h4>
+                    </div>
+                    <div class="advantage_content_text">
+                        <p>{{ block.settings.advantage_content_text }}</p>
+                    </div>
+                </div>
+            </div>
+        {%- endfor -%}
+        </div>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "advantage",
+  "settings": [
+    {
+        "type":"text",
+        "id":"advantage_title",
+        "label":"titre"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "advantage_block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "advantage_icon",
+          "label": "image icon"
+        },
+        {
+          "type": "text",
+          "id": "advantage_content_title",
+          "label": "titre block"
+        },
+        {
+          "type": "text",
+          "id": "advantage_content_text",
+          "label": "text block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

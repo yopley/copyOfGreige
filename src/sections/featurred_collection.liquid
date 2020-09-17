@@ -1,0 +1,76 @@
+<section class="featurred_collection">
+    <div class="featurred_collection_container theme-container">
+        <div class="text">
+            <p class="featurred_title">{{ section.settings.featurred_title }}</p>
+            <p class="featurred_desc">{{ section.settings.featurred_desc }}</p>
+        </div>
+        <div class="featurred_block">
+            <div class="block1">
+                <div class="bg1">
+
+                </div>
+            </div>
+            <a href="#" class="block1">
+                <button class="featurred_button" type="button" name="button">Découvrir</button>
+            </a>
+            <div class="block2">
+                <div class="bg2">
+
+                </div>
+            </div>
+            <a href="#" class="block2">
+                <button class="featurred_button" type="button" name="button">Découvrir</button>
+            </a>
+            <div class="block3">
+                <div class="bg3">
+
+                </div>
+            </div>
+            <a href="#" class="block3">
+                <button class="featurred_button" type="button" name="button">Découvrir</button>
+            </a>
+        </div>
+        <div class="featurred_block_mobile">
+            <a href="#" class="block_mobile">
+                <div class="bg_mobile" style="background-image: url('https://cdn.shopify.com/s/files/1/0420/0998/5190/files/BI9A0906_1024x1024_e7c6e3f5-b693-4c38-9a44-779a175a9ae2.jpg?v=1596544070')">
+
+                </div>
+                <h2 class="subtitle">Housse de couette</h2>
+                <button class="featurred_button" type="button" name="button">Découvrir</button>
+            </a>
+            <a href="#" class="block_mobile">
+                <div class="bg_mobile" style="background-image: url('https://cdn.shopify.com/s/files/1/0420/0998/5190/files/housse_de_couette_en_percale_1024x1024_f74a0789-d39d-4f3e-8901-b33402d6e3c2.jpg?v=1596544090')">
+
+                </div>
+                <h2 class="subtitle">Housse de couette</h2>
+                <button class="featurred_button" type="button" name="button">Découvrir</button>
+            </a>
+            <a href="#" class="block_mobile">
+                <div class="bg_mobile" style="background-image: url('https://cdn.shopify.com/s/files/1/0420/0998/5190/files/home-block-3_1024x1024_b46c695e-8bed-4cad-b667-b3c6dd614327.jpg?v=1596544081')">
+
+                </div>
+                <h2 class="subtitle">Housse de couette</h2>
+                <button class="featurred_button" type="button" name="button">Découvrir</button>
+            </a>
+        </div>
+        <a class="featurred_more more" href="#">voir collection</a>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "featurred_collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "featurred_title",
+      "label": "titre"
+    },
+    {
+      "type": "text",
+      "id": "featurred_desc",
+      "label": "description"
+    }
+  ]
+}
+{% endschema %}

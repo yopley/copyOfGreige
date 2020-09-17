@@ -1,0 +1,41 @@
+
+<div class="home_container">
+    <div class="homepage">
+        <img src="https://cdn.shopify.com/s/files/1/0420/0998/5190/files/parure_de_lit_percale_bleu_ciel_1_1.jpg?v=1596191073" alt="">
+    </div>
+    <div class="inside">
+        <div class="inside_container">
+            <h1>{{ section.settings.inside_title }}</h1>
+            <p>{{ section.settings.inside_p }}</p>
+            <a href="#">{{ section.settings.inside_button }}</a>
+        </div>
+    </div>
+    <a href class="slide-down">
+        <span class="material-icons">
+            keyboard_arrow_down
+            </span>
+    </a>
+</div>
+
+{% schema %}
+{
+  "name": "homepage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "inside_title",
+      "label": "titre"
+    },
+    {
+      "type": "text",
+      "id": "inside_p",
+      "label": "paragraphe"
+    },
+    {
+      "type": "text",
+      "id": "inside_button",
+      "label": "bouton"
+    }
+  ]
+}
+{% endschema %}

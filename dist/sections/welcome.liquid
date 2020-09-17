@@ -1,0 +1,30 @@
+<section class="welcome_container">
+    <div class="welcome">
+        <h2>{{ section.settings.welcome_title }}</h2>
+        <p>{{ section.settings.welcome_p }}</p>
+        <a href="#" class="more">{{ section.settings.more }}</a>
+    </div>
+</section>
+
+{% schema %}
+{
+  "name": "welcome",
+  "settings": [
+    {
+      "type": "text",
+      "id": "welcome_title",
+      "label": "titre"
+    },
+    {
+      "type": "text",
+      "id": "welcome_p",
+      "label": "paragraphe"
+    },
+    {
+      "type": "text",
+      "id": "more",
+      "label": "lien"
+    }
+  ]
+}
+{% endschema %}

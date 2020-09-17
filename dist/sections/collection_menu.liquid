@@ -1,0 +1,30 @@
+<div class="theme-container">
+    <ul class="type-menu">
+        <li style="color: #828282;">Aller vers :</li>
+        {%- for link in linklists[section.settings.collection_menu].links -%}
+            <li><a href="{{ link.url }}">{{ link.title | capitalize }}</a></li>
+        {% endfor %}
+        <li class="item__select--mobile">
+
+                    <select>
+                        {% for link in linklists[section.settings.collection_menu].links %}
+                          <option data_url="{{ link.url }}">{{ link.title | capitalize }}</option>
+                        {% endfor %}
+                    </select>
+
+        </li>
+    </ul>
+</div>
+
+{% schema %}
+{
+  "name": "collection_menu",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "collection_menu",
+      "label": "liste de collection"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,74 @@
+<footer>
+    <div class="theme-container">
+        <div class="footer_container">
+            <div class="footer_content_text">
+                <h4 class="footer_text_title">greige</h4>
+                <p class="footer_text_subtitle">La marque française de linge de lit haut de gamme conçue sans compromis, sans intermédiaire, au prix juste.</p>
+            </div>
+            <div class="footer_content_menu">
+                <div class="footer_menu">
+                    <div class="footer_menu_item">
+                        <div class="footer_menu_title">
+                            <h4>aide et contact</h4>
+                        </div>
+                        <div class="footer_menu_text">
+                            <ul>
+                                <li>Nous contacter</li>
+                                <li>Livraison et retours</li>
+                                <li>Guide des tailles</li>
+                                <li>FAQ</li>
+                                <li>CGV</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer_menu_item">
+                        <div class="footer_menu_title">
+                            <h4>à propos</h4>
+                        </div>
+                        <div class="footer_menu_text">
+                            <ul>
+                                <li>notre concept</li>
+                                <li>nos engagements</li>
+                                <li>nos produits</li>
+                                <li>mentions légales</li>
+                                <li>guide d'entretien</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_content_newletter">
+                <div class="footer_newsletter_title">
+                    <h4>newsletter</h4>
+                </div>
+                <div class="footer_newsletter">
+                    {%- assign formId = 'ContactFooter' -%}
+                    {% form 'customer' , id: formId, novalidate: 'novalidate' %}
+                    <input type="email"
+                    placeholder="Saisissez votre adresse e-mail"
+                    value="{{ form.email }}"
+                    name="contact[email]"
+                    id="{{ formId }}-email"
+                    class="input-group__field newsletter__input{% if form.errors %} input--error{% endif %}"
+                    aria-required="true"
+                    required
+                    autocorrect="off"
+                    autocapitalize="off">
+                    <button type="submit" class="newsletter__btn">OK</button>
+                    {% if form.errors %}
+                    {{ form.errors | default_errors }}
+                    {% endif %}
+                    {% if form.posted_successfully? %}
+                        Comment posted successfully!
+                    {% else %}
+                        {{ form.errors | default_errors }}
+                    {% endif %}
+                    {% endform %}
+                </div>
+                <div class="footer_social">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
