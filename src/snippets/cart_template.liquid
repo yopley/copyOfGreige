@@ -1,0 +1,107 @@
+<div class="basket">
+    <div class="cart_container">
+        <div class="cart__content">
+            <h1 class="cart_title">Votre panier</h1>
+            <div class="cart_subtitle">Livraison offerte dès 89€. Retours gratuits 30 jours.</div>
+        </div>
+    </div>
+    <div class="table">
+        <div class="table_head">
+            <p class="table_head__prod">Produit</p>
+            <p class="table_head__empty"></p>
+            <p class="table_head__quantity">Quantité</p>
+            <p class="table_head__total">Total TTC</p>
+        </div>
+        <div class="items">
+            {%- for line_item in cart.items -%}
+                <div class="item" data-product-id="{{ line_item.variant_id }}" data-product-title="{{ line_item.variant.title }}">
+                    <div class="grid_line">
+                        <div class="item__prod">
+                            <img src="{{ line_item.variant.image |img_url: '108x130', crop: 'center' }}" alt="">
+                        </div>
+                        <div class="item__details">
+                            <p class="p_title">{{ line_item.product.title }}</p>
+                            <div></div>
+                            {% for color_option in line_item.product.options_by_name['Color'].values %}
+                              {%- if line_item.variant.title contains color_option  -%}
+                                  <div class="properties">Couleur -  {{ color_option }}</div>
+                              {%- endif -%}
+                            {% endfor %}
+                            <div class="variant">{{ line_item.title }}</div>
+                        </div>
+                        <div class="item__quantity">
+                            <div class="quantity">
+                                <div class="form">
+                                    <a href class="minus"></a>
+    								<input class="cartQuantity" type="text" value="1" name="quantity">
+                                    <a href class="plus"></a>
+    							</div>
+                            </div>
+                        </div>
+                        <div class="item__total">
+                            <span class="total-price">
+                                <span class="cart-item-price" data-key="{{ line_item.key }}">{{ line_item.final_line_price | money }}</span>
+                            </span>
+                            <a class="remove"></a>
+                        </div>
+                    </div>
+                </div>
+
+            {%- endfor -%}
+        </div>
+        <form id="cart" action="/cart" method="post">
+                    <input type="submit" class="hide" name="checkout" value="CHECKOUT">
+
+                    <div class="totals_ships" style="padding-bottom: 30px">
+
+                            <div class="ships">
+
+                                Total de la commande &nbsp;&nbsp;<span class="total"><span class="cart-original-total">{{ cart.total_price | money }}</span></span>
+                                <div class="shipping">Hors frais de livraison</div>
+
+                            </div>
+
+                    </div>
+
+                    <div class="totals_validation">
+                        <div class="order-3-xs order-1-sm col-6-sm">
+                            <a href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}" class="btn_alt">Continuer mes achats</a>
+                        </div>
+
+                        <div class="order-2-xs order-3-sm col-6-sm text-right">
+                            <!-- ALMA -->
+                            <style>
+                              .alma-container {
+                                line-height: 23px;
+                                margin: 0 auto 20px;
+                                font-size: 12px;
+                                text-transform: none;
+                                width: 260px;
+                              }
+
+                              @media(min-width: 768px) {
+                                .alma-container {
+                                  float: right;
+                                  margin: 0 0 20px
+                                }
+                              }
+                            </style>
+
+                            <div class="alma-container hspace-between-xs">
+                              <img src="//cdn.shopify.com/s/files/1/0020/7680/3108/t/9/assets/alma-p3x.svg?v=13175520273423266753" style="height: 23px;vertical-align: middle;position: relative;top: -1px;left:-3px;">
+                              Payez en 3x dès 100€
+                            </div>
+                            <!-- /ALMA -->
+                            <div class="agreement">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">J’accepte les conditions générales de vente</label>
+                                <div class="error">Vous devez accepter les conditions générales de vente avant de continuer</div>
+                            </div>
+                            <a href="/checkout" class="btn_chkt">VALIDER MA COMMANDE</a>
+
+                        </div>
+                    </div>
+
+                </form>
+    </div>
+</div>

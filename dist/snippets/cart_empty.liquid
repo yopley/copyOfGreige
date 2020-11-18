@@ -1,0 +1,7 @@
+
+<div class="empty_cart_page">
+    <div class="title">
+        votre panier est vide
+    </div>
+    <a href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}" class="btn_cart">AJOUTER AU PANIER</a>
+</div>

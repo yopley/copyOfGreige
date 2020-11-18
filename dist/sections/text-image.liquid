@@ -1,0 +1,28 @@
+<div class="text-section-1">
+    <h1>{{ section.settings.title }}</h1>
+    <p>{{ section.settings.text }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Schema Name",
+  "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "titre"
+        },
+        {
+            "type": "textarea",
+            "id": "text",
+            "label": "text"
+        }
+  ],
+  "presets": [
+    {
+        "category": "text",
+        "name": "text-section 1"
+    }
+  ]
+}
+{% endschema %}

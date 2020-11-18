@@ -53,7 +53,7 @@
                 <button class="featurred_button" type="button" name="button">Découvrir</button>
             </a>
         </div>
-        <a class="featurred_more more" href="#">voir collection</a>
+        <a class="featurred_more more" href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}">voir collection</a>
     </div>
 </section>
 

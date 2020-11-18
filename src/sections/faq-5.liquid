@@ -1,0 +1,35 @@
+
+    <div id="produits" class="block">
+        <h2 class="faq-title">Nos produits</h2>
+        {%- for block in section.blocks -%}
+            <div class="position">
+                <p class="head">{{ block.settings.qst }}</p>
+                <p class="body">{{ block.settings.ans }}</p>
+            </div>
+        {%- endfor -%}
+    </div>
+
+
+{% schema %}
+{
+    "name": "FAQ-5",
+    "blocks": [
+      {
+        "name": "subject",
+        "type": "text",
+        "settings": [
+            {
+                "type": "text",
+                "id": "qst",
+                "label": "question"
+            },
+            {
+                "type": "textarea",
+                "id": "ans",
+                "label": "réponse"
+            }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -19,19 +19,21 @@
                             {% assign variant_title = variant.title %}
                             {% assign variant_img = variant.image.src %}
                             {% assign variant_price = variant.price %}
+                            {% assign variant_url = variant.url %}
                         {% endif %}
                     {% else %}
                         {% if variant.title contains colour %}
                             {% assign variant_title = variant.title %}
                             {% assign variant_img = variant.image.src %}
                             {% assign variant_price = variant.price %}
+                            {% assign variant_url = variant.url %}
                         {% endif %}
                     {% endif %}
                 {% endfor %}
                 <div class="grid-product">
-                    <a href="#">
+                    <a href="{{ variant_url }}">
                       <img class="product-image" src="{{ variant_img | img_url: '330x370' , crop: 'center' }}" alt="">
-                      <p data-variant="{{ variant_title }}">{{ product.title }} {{ color_option }} {{ variant_price | money }}</p>
+                      <p data-variant="{{ variant_title }}">{{ product.title }} {% if color_option contains '_' %} {{ color_option | replace: '_', ' ' }} {% else %} {{ color_option }} {% endif %} {{ variant_price | money }}</p>
                     </a>
                 </div>
             {% endfor %}

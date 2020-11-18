@@ -35,9 +35,14 @@
                   CartJS.init({{ cart | json }});
               });
   </script>
+  <script
+  src="https://code.jquery.com/jquery-migrate-3.3.1.min.js"
+  integrity="sha256-APllMc0V4lf/Rb5Cz4idWUCYlBDG3b0EcN1Ushd3hpE="
+  crossorigin="anonymous"></script>
   <script type="text/javascript">
+
   $(document).ready(function(){
-    $('.featurred_block_mobile').slick({
+     $('.featurred_block_mobile').slick({
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false,
@@ -57,14 +62,18 @@
       //]
     });
   });
+  
   </script>
   {{ 'flickity.pkgd.min.js' | asset_url | script_tag }}
   {{ 'isotope.pkgd.min.js' | asset_url | script_tag }}
   {{ 'slick.js' | asset_url | script_tag }}
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   {{ 'custom_theme.js' | asset_url | script_tag }}
 </head>
 
 <body>
+
+    {% section 'mobile-nav' %}
     {% section 'header' %}
     <main>
       {{ content_for_layout }}

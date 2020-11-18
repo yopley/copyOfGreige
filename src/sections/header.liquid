@@ -2,8 +2,8 @@
 
 <header>
     <nav>
-        <div class="topbar">
-
+        <div class="topbar" style="margin-top: 0px;">
+            <p>COVID-19 : LIVRAISON ASSURÉE A DOMICILE I RETOURS GRATUITS 90 JOURS&nbsp;</p>
         </div>
         <div class="menu">
             <div class="main_menu">
@@ -39,7 +39,7 @@
                                 </ul>
                                 {%- if link.title == 'linge de lit' -%}
                                 <div class="image-menu">
-                                    <img src="{{ section.settings.image_menu | img_url: crop : 'center' }}" height="auto" alt="">
+                                    <img src="https://cdn.shopify.com/s/files/1/0420/0998/5190/files/Optimized-BI9A9553_1_1_298x252_1c684601-37b7-4975-aeb7-9e30fb0145d9.jpg?v=1603014383" height="auto" alt="">
                                 </div>
                                 {% endif %}
                             </div>
@@ -56,56 +56,29 @@
             <div class="right_menu">
                 <ul class="dropdown_right">
                     <li class="list_right">
-                        <a href="#">Avis</a>
-                    </li>
-                    <li class="list_right">
                             {{ 'Compte' | customer_login_link }}
                     </li>
-                    <li class="list_right">
-                        <a href="#">panier</a>
+                    <li class="list_right cart_drop">
+                        <a class="cart_count" href="{{ routes.cart_url }}">
+                            <span class="cart-text">panier</span>
+                            <span data-count></span>
+                        </a>
+                        <div class="cart">
+
+                            <div class="empty_cart">
+                                <div class="title">
+                                    votre panier est vide
+                                </div>
+                                <a href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}" class="btn_cart">AJOUTER AU PANIER</a>
+                            </div>
+
+                            {% include 'cart_pocket' %}
+                        </div>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="mobile_menu">
-        <ul class="mobile_dropdown_1">
-            {%- for link in linklists[menu_left].links -%}
-            <li class="mobile_list_lv1"  {% if link.levels > 0 %} data-dropdown {% endif %}>
-                <p class="drop_title">
-                    {% if link.levels < 1 %}<a href="{{ link.url }}" >{% endif %}
-                        <span>{{ link.title | capitalize }}</span>
-                    {% if link.levels < 1 %}</a>{% endif %}
-                    {%- if link.levels > 0 -%}
-                    <span class="material-icons drop_icon add">
-                        add
-                    </span>
-                </p>
-                <div class="mobile_subdropdown">
-                    <ul class="mobile_dropdown_lv2">
-                        {%- for sub_link in link.links -%}
-                            <li class="list_lv2">
-                                <a href="{{ sub_link.url }}">{{ sub_link.title | capitalize }}</a>
-                            </li>
-                        {%- endfor -%}
-                    </ul>
-                </div>
-                {%- endif -%}
-            </li>
-            {% endfor %}
-        </ul>
-        <ul class="mobile_dropdown_right">
-            <li class="mobile_list_right">
-                <a href="#">Avis</a>
-            </li>
-            <li class="mobile_list_right">
-                <a href="#">Mon compte</a>
-            </li>
-            <li class="mobile_list_right">
-                <a href="#">FAQ</a>
-            </li>
-        </ul>
-    </div>
 </header>
 
 {% schema %}

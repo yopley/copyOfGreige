@@ -6,8 +6,10 @@
     <div class="inside">
         <div class="inside_container">
             <h1>{{ section.settings.inside_title }}</h1>
-            <p>{{ section.settings.inside_p }}</p>
-            <a href="#">{{ section.settings.inside_button }}</a>
+            <h2>{{ section.settings.inside_p }}</h2>
+            <div class="over">
+                <a href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}">{{ section.settings.inside_button }}</a>
+            </div>
         </div>
     </div>
     <a href class="slide-down">

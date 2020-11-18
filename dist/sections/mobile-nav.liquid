@@ -1,0 +1,50 @@
+{% assign menu_left = section.settings.first_menu %}
+<div class="mobile_menu">
+    <ul class="mobile_dropdown_1">
+        {%- for link in linklists[menu_left].links -%}
+        <li class="mobile_list_lv1"  {% if link.levels > 0 %} data-dropdown {% endif %}>
+            <p class="drop_title">
+                {% if link.levels < 1 %}<a href="{{ link.url }}" >{% endif %}
+                    <span>{{ link.title | capitalize }}</span>
+                {% if link.levels < 1 %}</a>{% endif %}
+                {%- if link.levels > 0 -%}
+                <span class="material-icons drop_icon add">
+                    add
+                </span>
+            </p>
+
+            <div class="mobile_subdropdown">
+                <ul class="mobile_dropdown_lv2">
+                    {%- for sub_link in link.links -%}
+                        <li class="list_lv2">
+                            <a href="{{ sub_link.url }}">{{ sub_link.title | capitalize }}</a>
+                        </li>
+                    {%- endfor -%}
+                </ul>
+            </div>
+            {%- endif -%}
+        </li>
+        {% endfor %}
+    </ul>
+    <ul class="mobile_dropdown_right">
+        <li class="mobile_list_right">
+            <a href="#">Mon compte</a>
+        </li>
+        <li class="mobile_list_right">
+            <a href="#">FAQ</a>
+        </li>
+    </ul>
+</div>
+
+{% schema %}
+{
+  "name": "mobile-head",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "first_menu",
+      "label": "menu de gauche"
+    }
+  ]
+}
+{% endschema %}

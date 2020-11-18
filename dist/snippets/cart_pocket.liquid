@@ -1,0 +1,26 @@
+<div class="pocket_cart hide">
+    <div class="items">
+
+        <div class="item" data-product-id data-product-title>
+            <div class="v_image">
+            </div>
+            <div class="v_details">
+                <a class="remove"></a>
+                <p class="p_title"></p>
+                <div class="properties"></div>
+                <p class="v_title"></p>
+                <div class="v_quantity">
+                    <p class="qty">qté <span></span></p>
+                    <p class="v_total_price"></p>
+                </div>
+            </div>
+
+        </div>
+        <div class="full_total">
+            <p class="subtotal">Sous-total</p>
+            <p class="price">{{ cart.total_price | money }}</p>
+        </div>
+        <a href="{{ routes.cart_url }}" class="btn-pocket">Commander</a>
+        <div class="info">Livraison offerte dès 89€. Retours gratuits 30 jours.</div>
+    </div>
+</div>

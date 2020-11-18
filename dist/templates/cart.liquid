@@ -1,0 +1,9 @@
+<div class="theme-container">
+    <div class="return">
+        <div class="cart_container">
+            <a class="product_link" href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}"></a>
+        </div>
+    </div>
+        {% include 'cart_template' %}
+        {% include 'cart_empty' %}
+</div>

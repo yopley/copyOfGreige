@@ -1,0 +1,26 @@
+<section class="grey">
+    <div class="theme-container">
+        <div class="section-content">
+            <h3>{{ section.settings.banner_subtitle }}</h3>
+            <h2>{{ section.settings.banner_title }}</h2>
+            <a class="coll_more" href="{% for collection in collections %}{% if collection.title == 'linge de lit percale' %}{{ collection.url }}{% endif %}{% endfor %}">voir collection</a>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+  "name": "collection_banner",
+  "settings": [
+    {
+        "type": "text",
+        "id": "banner_title",
+        "label": "titre"
+    },
+    {
+        "type": "text",
+        "id": "banner_subtitle",
+        "label": "sous-titre"
+    }
+  ]
+}
+{% endschema %}
